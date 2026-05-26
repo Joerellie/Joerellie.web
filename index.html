@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Favorite Person 💖</title>
+
+    <!-- Meta SEO & Aesthetics -->
+    <meta name="description"
+        content="A special surprise for my favorite person, my safest place, and my happiest feeling.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Sacramento&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating Aesthetic Hearts Background -->
+    <div id="hearts-container" class="hearts-background"></div>
+
+    <!-- AUDIO ELEMENT (John Mayer - You're Gonna Live Forever In Me) -->
+    <!-- Falls back to a high-quality romantic harp music stream if local song.mp3 is not loaded -->
+    <audio id="romantic-audio" preload="auto">
+        <source src="music/song.mp3" type="audio/mpeg">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- SECTION 1: GIFT UNBOXING LANDING SCREEN -->
+    <div class="landing-screen" id="landingScreen">
+        <div class="landing-wrapper">
+            <h1 class="gift-quote">
+                “You are my favorite person,<br>my safest place,<br>and my happiest feeling.”
+            </h1>
+
+            <div class="gift-box-container" id="giftBoxBtn">
+                <div class="gift-box">
+                    <!-- Lid of the Gift Box -->
+                    <div class="gift-lid">
+                        <div class="lid-ribbon-h"></div>
+                        <div class="lid-ribbon-v"></div>
+                        <div class="gift-bow">
+                            <div class="bow-left"></div>
+                            <div class="bow-right"></div>
+                            <div class="bow-center"></div>
+                        </div>
+                    </div>
+                    <!-- Body of the Gift Box -->
+                    <div class="gift-body-box">
+                        <div class="body-ribbon-h"></div>
+                        <div class="body-ribbon-v"></div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="gift-hint">Sentuh kadonya untuk membuka kejutanmu ❤️</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2: MAIN ROMANTIC INTERFACE (REVEALED ON UNBOX) -->
+    <div class="main-content" id="mainContent">
+        <div class="content-wrapper">
+
+            <!-- HEADER -->
+            <header class="romantic-header">
+                <div class="avatar-holder">
+                    <div class="avatar-glow"></div>
+                    <!-- Photo placeholder using SVG if girlfriend.jpg is missing -->
+                    <img id="girlAvatar" src="images/girlfriend.jpg" alt="My Beautiful Girl"
+                        onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';">
+                    <div id="avatarFallback" class="avatar-placeholder-svg">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                                fill="url(#avatarHeartGrad)" />
+                            <defs>
+                                <linearGradient id="avatarHeartGrad" x1="2" y1="3" x2="22" y2="21.35"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#FF9EAE" />
+                                    <stop offset="100%" stop-color="#FF4B72" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+                <h2 class="subtitle-text">Hello, My Special Person</h2>
+                <h1 class="main-title">Untuk Dedenyaa aku Cyio ✨</h1>
+            </header>
+
+            <!-- MUSIC PLAYER (SPOTIFY STYLE) -->
+            <section class="music-section">
+                <div class="player-container">
+                    <div class="player-inner">
+
+                        <!-- Left Side: Album Cover -->
+                        <div class="player-album-cover">
+                            <div class="album-ring"></div>
+                            <!-- Real cover with fallback -->
+                            <img id="playerAlbumArt" src="images/girlfriend.jpg" alt="Album Cover"
+                                onerror="this.style.display='none'; document.getElementById('albumFallback').style.display='flex';">
+                            <div id="albumFallback" class="album-placeholder-art">
+                                <div class="floating-notes-container">
+                                    <span class="note-1">♪</span>
+                                    <span class="note-2">♫</span>
+                                    <span class="note-3">♬</span>
+                                </div>
+                                <svg viewBox="0 0 100 100" class="album-svg-love">
+                                    <path
+                                        d="M50 82C50 82 85 57 85 35C85 19 72.5 7 57 7C48 7 43 12 50 20C57 12 52 7 43 7C27.5 7 15 19 15 35C15 57 50 82 50 82Z"
+                                        fill="url(#albumHeartGrad)" />
+                                    <defs>
+                                        <linearGradient id="albumHeartGrad" x1="15" y1="7" x2="85" y2="82"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="0%" stop-color="#FF9EAE" />
+                                            <stop offset="50%" stop-color="#FF6B8B" />
+                                            <stop offset="100%" stop-color="#FF3366" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Track Controls & Visualizer -->
+                        <div class="player-controls-container">
+                            <div class="track-info">
+                                <div class="track-titles">
+                                    <h3 class="track-name" id="trackName">You're Gonna Live Forever in Me</h3>
+                                    <p class="track-artist">John Mayer</p>
+                                </div>
+
+                                <!-- Romantic Animated Soundwave Visualizer -->
+                                <div class="visualizer" id="visualizer">
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- Clickable Seek Progress Bar -->
+                            <div class="progress-wrapper">
+                                <span class="time-stamp" id="currentTime">0:00</span>
+                                <div class="progress-bar-container" id="progressBarContainer">
+                                    <div class="progress-bar" id="progressBar"></div>
+                                    <div class="progress-knob" id="progressKnob"></div>
+                                </div>
+                                <span class="time-stamp" id="totalDuration">3:09</span>
+                            </div>
+
+                            <!-- Buttons (Spotify Style) -->
+                            <div class="player-controls">
+                                <button class="control-btn secondary-btn" id="shuffleBtn" aria-label="Shuffle">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" />
+                                    </svg>
+                                </button>
+                                <button class="control-btn" id="prevBtn" aria-label="Previous">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
+                                    </svg>
+                                </button>
+                                <button class="control-btn main-play-btn" id="playPauseBtn" aria-label="Play/Pause">
+                                    <svg viewBox="0 0 24 24" id="playIcon">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" id="pauseIcon" style="display: none;">
+                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                                    </svg>
+                                </button>
+                                <button class="control-btn" id="nextBtn" aria-label="Next">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6z" />
+                                    </svg>
+                                </button>
+                                <button class="control-btn secondary-btn" id="repeatBtn" aria-label="Repeat">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Mini interactive status & volume info -->
+                            <div class="player-footer">
+                                <span class="active-badge">✨ Connected to your heart</span>
+                                <div class="volume-container">
+                                    <button class="volume-btn" id="volumeBtn">
+                                        <svg viewBox="0 0 24 24" id="volumeOnIcon">
+                                            <path
+                                                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                                        </svg>
+                                        <svg viewBox="0 0 24 24" id="volumeMuteIcon" style="display: none;">
+                                            <path
+                                                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                                        </svg>
+                                    </button>
+                                    <div class="volume-slider-bg" id="volumeSliderBg">
+                                        <div class="volume-slider-fill" id="volumeSliderFill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Playlist Drawer -->
+                    <div class="player-playlist">
+                        <div class="playlist-header">
+                            <span class="playlist-title">📋 Daftar Lagu Cinta Kita</span>
+                            <span class="playlist-count">5 Lagu</span>
+                        </div>
+                        <div class="playlist-items" id="playlistItems">
+                            <div class="playlist-item active" data-index="0">
+                                <span class="pli-index">1</span>
+                                <div class="pli-details">
+                                    <span class="pli-name">You're Gonna Live Forever in Me</span>
+                                    <span class="pli-desc">John Mayer</span>
+                                </div>
+                                <span class="pli-duration">3:09</span>
+                            </div>
+                            <div class="playlist-item" data-index="1">
+                                <span class="pli-index">2</span>
+                                <div class="pli-details">
+                                    <span class="pli-name">You’re Still The One</span>
+                                    <span class="pli-desc">Shania Twain</span>
+                                </div>
+                                <span class="pli-duration">3:20</span>
+                            </div>
+                            <div class="playlist-item" data-index="2">
+                                <span class="pli-index">3</span>
+                                <div class="pli-details">
+                                    <span class="pli-name">Helena</span>
+                                    <span class="pli-desc">My Chemical Romance</span>
+                                </div>
+                                <span class="pli-duration">3:29</span>
+                            </div>
+                            <div class="playlist-item" data-index="3">
+                                <span class="pli-index">4</span>
+                                <div class="pli-details">
+                                    <span class="pli-name">Last Night On Earth</span>
+                                    <span class="pli-desc">Green Day</span>
+                                </div>
+                                <span class="pli-duration">3:57</span>
+                            </div>
+                            <div class="playlist-item" data-index="4">
+                                <span class="pli-index">5</span>
+                                <div class="pli-details">
+                                    <span class="pli-name">All Of Me</span>
+                                    <span class="pli-desc">John Legend</span>
+                                </div>
+                                <span class="pli-duration">05:07</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHOTO MARQUEE SECTION (Endless Scrolling Polaroid Wall) -->
+            <section class="gallery-section">
+                <h2 class="gallery-title">Our Memories 🌸</h2>
+                <p class="gallery-subtitle">Aku Bahagiaaaa banget punya kamuu sayanggg...</p>
+
+                <div class="marquee-wrapper">
+                    <!-- First track scrolling left -->
+                    <div class="marquee-container scroll-left">
+                        <div class="marquee-track" id="marqueeTrack1">
+
+                            <!-- Polaroid 1 -->
+                            <div class="polaroid-card" data-index="1" data-caption="Video Favorite akuu 🌸"
+                                data-desc="Video pertama kita yang sayang ajak aku,aku inget sayang ngomong 'bikin ini yuk sayang' walau hasilnya ga bagus amat,tapi aku suka,memorable bangettt">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <!-- Triple Fallback Loader: mp4 -> jpg -> CSS fallback -->
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video1.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo1.jpg" alt="Moment 1"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-1">
+                                        <span class="fallback-icon">💝</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">Video Favorite akuu 🌸</div>
+                            </div>
+
+                            <!-- Polaroid 2 -->
+                            <div class="polaroid-card" data-index="2" data-caption="Helena"
+                                data-desc="Maaf yah udah ngeracunin sayang buat suka MCR juga HAHAHAHA.Tapi seru punya pacar yang mau diajak ngepunk bareng,bahkan sampe mcr date ceunah.Aku harap nanti kalau kita nikah,anak kita namain Helena yah sayangg...">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video2.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo2.jpg" alt="Moment 2"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-2">
+                                        <span class="fallback-icon">✨</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">Helena</div>
+                            </div>
+
+                            <!-- Polaroid 3 -->
+                            <div class="polaroid-card" data-index="3" data-caption="Sama Chokii 🧸"
+                                data-desc="Kamu lagi ngevlog ama chokii,eh malah ada makhluk korea yang mengganggu,makanya aku membalikkan botolnya biar kamu tau,cuman aku pacar kamu,bukan makhluk PLASTIQUE ituhh...geleuh ihh.😜😜">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video3.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo3.jpg" alt="Moment 3"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-3">
+                                        <span class="fallback-icon">🧸</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">Sama Chokii🧸</div>
+                            </div>
+
+                            <!-- Polaroid 4 -->
+                            <div class="polaroid-card" data-index="4" data-caption="Cyio Hairstylist 💖"
+                                data-desc="Disini aku diem diem ngerekam video kamu rapihin rambut aku yang berantakan banget ituh,ucu banget sumpah aku tiap lihat videonya kek GEMEEEESSSSS BANGETTTTTT.Lopyu ah sayang.😘😘">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video4.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo4.jpg" alt="Moment 4"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-4">
+                                        <span class="fallback-icon">😂</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">Cyio Hairstylist 💖</div>
+                            </div>
+
+                            <!-- Polaroid 5 -->
+                            <div class="polaroid-card" data-index="5" data-caption="Pap PDKT ✨"
+                                data-desc="Aku inget banget,dulu waktu kita masih temenan terus kamu ngirimin foto ini,aduhhh langsung jatuh cinta abang adeee,cantik banget sih,cuman sayang dulu mikirnya gabisa pacaran ama kamu,karna aku dikunci ama hubungan toxic itu,tapi aku terima kasih bange ama Tuhan,bisa pacaran ama kamu.Makasih ya Tuhan...">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video5.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo5.jpg" alt="Moment 5"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-5">
+                                        <span class="fallback-icon">👑</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">Pap PDKT ✨</div>
+                            </div>
+
+                            <!-- Polaroid 6 -->
+                            <div class="polaroid-card" data-index="6" data-caption="Photobooth MCR Date 😹"
+                                data-desc="Anjayyy,photobooth kedua kita sebelum kita capek capekan di braga,huff masih inget ga sayang,kita keliling cuman buat nyari jalan masuk doang,naik lift maah kayak penjaga lift yee jatuhnya,bahkan kita ngelewatin jalan yang sama berkali kali ampe dilihatin,cuman gapapa deh karna itu lucu banget dan gabisa dilupain,dan ini first time kita photobooth yang aku cium kamu,lucuu ih aduh...KDM bapak aing.wkwkwk">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video6.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo6.jpg" alt="Moment 6"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-6">
+                                        <span class="fallback-icon">🌙</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">Photobooth MCR Date 😹</div>
+                            </div>
+
+                            <!-- Polaroid 7 -->
+                            <div class="polaroid-card" data-index="7" data-caption="Photo pertama kitaa 🙈"
+                                data-desc="Inget banget ini pertama kali kita selfie anjayyy,aku inget banget foto ini buat jj langsung pulangnya,dan kamu jadi cewek pertama yang pernah foto bareng aku.Kamu mah udah sering🙄,kan banyak mantan kamu🙄🙄wkwkwkk canda sayangg.">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video7.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo7.jpg" alt="Moment 7"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-7">
+                                        <span class="fallback-icon">🤝</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">Photo pertama kitaa 🙈</div>
+                            </div>
+
+                            <!-- Polaroid 8 -->
+                            <div class="polaroid-card" data-index="8" data-caption="Keren banget Tuh"
+                                data-desc="Keren banget yah pake topi,mana gemesin lagi,simonyong ini,pengen ih ke Oh Some lagi,buat pap pap lucu doang,wkwkwkwkwkwk">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video8.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo8.jpg" alt="Moment 8"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-8">
+                                        <span class="fallback-icon">🏡</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">Keren banget Tuh</div>
+                            </div>
+
+                            <!-- Polaroid 9 -->
+                            <div class="polaroid-card" data-index="9" data-caption="FIRST PHOTOBOOTH🌟"
+                                data-desc="Photobooth pertama kitaaaa...ihhh gemessssss.Absen yang gemes adik adik.ASELI yang aku selama ini impi-impikan buat photobooth ama cewe pun terkabulkannn😮‍💨,dan juga aku disini ganteng banget anjayyy🙂‍↔️🙂‍↔️,biasaah cowok ganteng,btw aku inget banget disini aku kaget kamu tiba tiba meluk aku,aku kek HOAHH KAGET😳😳.Tapi ini memorable banget sih,sampe ditempel dicasing hp.">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video9.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo9.jpg" alt="Moment 9"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-9">
+                                        <span class="fallback-icon">🥰</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">FIRST PHOTOBOOTH🌟</div>
+                            </div>
+
+                            <!-- Polaroid 10 -->
+                            <div class="polaroid-card" data-index="10" data-caption="Malu malu dia 🤭🤭"
+                                data-desc="INI VIDEO YANG VIRAL DI GRUP KELUARGA ANJAYYY,LANGSUNG SEMUA KELUARGA PADA NGOMONGIN BAHKAN DITELPON AKU,WKWKWKWKWK.Dan juga video paling sering aku putar yaa...Ini gitu loh,bahkan tiap aku puter lagu ini vibesnya langsung kayak masih dibandung dan lagi maem gacoan ama cayangg🥰🥰🥰.Btw itu udang keju kok ditusuk pake sumpit wkwkwkwk😂😂,gatau make yaa...">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video10.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo10.jpg" alt="Moment 10"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-10">
+                                        <span class="fallback-icon">💫</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">Malu malu dia 🤭🤭</div>
+                            </div>
+
+                            <!-- Polaroid 11 -->
+                            <div class="polaroid-card" data-index="11" data-caption="Mirror Selfie Again 📸"
+                                data-desc="Emang anaknya hobi banget ye mirror selfie,tapi ini lucu sih JUJURR gw ganteng banget cok😏😏wkwkwkwk posenya dah kayak superman tuh,Superhero tuh ye jatuhnya.Pacar aku juga cantikkk banget disini😘😘,pawangnya spiderman tuh,Mary Jane tah iki??wkwkwk🤣🤣">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video11.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo11.jpg" alt="Moment 11"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-11">
+                                        <span class="fallback-icon">💗</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">Mirror Selfie Again 📸</div>
+                            </div>
+
+                            <!-- Polaroid 12 -->
+                            <div class="polaroid-card" data-index="12" data-caption="Anak Basket banget Tuh 🏀"
+                                data-desc="Ini waktu aku tinggalin sayang LKTD.Huhuuu🥹🥹,tapi pas pulang ada foto sayang pake baju basket,DAN ITU BAJU BASKET AKU?!?!cantik bangetttt anjaayyyyy,omayugoddddd,melehoy sayaa😚😚😚wleowleowleowleoweo🤪🤪😜😜">
+                                <div class="pin"></div>
+                                <div class="photo-box">
+                                    <div class="video-badge" style="display: none;">▶</div>
+                                    <video class="polaroid-video" loop muted playsinline autoplay
+                                        src="images/video12.mp4" style="display: none;"></video>
+                                    <img class="polaroid-img" src="images/photo12.jpg" alt="Moment 12"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="photo-fallback pf-12">
+                                        <span class="fallback-icon">💍</span>
+                                    </div>
+                                </div>
+                                <div class="polaroid-caption">FAnak Basket banget Tuh 🏀</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LOVE LETTER SECTION -->
+            <section class="letter-section">
+                <div class="letter-card">
+                    <!-- Top subtle envelope stamp detail -->
+                    <div class="letter-stamp">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" fill="none" stroke="#E3A3B0" stroke-width="1.5"
+                                stroke-dasharray="3,3" />
+                            <path
+                                d="M50 72C50 72 75 52 75 35C75 22 65 12 52 12C45 12 41 16 50 25C59 16 55 12 48 12C35 12 25 22 25 35C25 52 50 72 50 72Z"
+                                fill="#FFA3B5" />
+                        </svg>
+                    </div>
+
+                    <h2 class="letter-title">DEAR CYIO</h2>
+
+                    <div class="letter-body">
+                        <p class="letter-p scroll-reveal">
+                            Hey cyio, I just want you to know that meeting you was one of the best things that ever
+                            happened to me. You came into my life so unexpectedly, yet somehow you became the person I
+                            care about the most. Every little thing about you means so much to me — your smile, your
+                            voice, the way you talk, even the smallest moments we spend together. You make my days feel
+                            lighter and my heart feel calmer.
+                        </p>
+                        <p class="letter-p scroll-reveal">
+                            Sometimes I wonder how someone like you could make me feel this happy without even trying.
+                            No matter how bad my day is, you always become the reason I smile again. Being with you
+                            feels safe, warm, and comforting, like I finally found a place where I truly belong.
+                        </p>
+                        <p class="letter-p scroll-reveal">
+                            I know I’m not perfect, and maybe I can’t always express my feelings the best way, but
+                            please believe me when I say that my feelings for you are real. I appreciate you more than
+                            words could ever explain. Thank you for staying, for understanding me, and for being such an
+                            important part of my life.
+                        </p>
+                        <p class="letter-p scroll-reveal">
+                            Aku sayang banget sama kamu sayang,aku harap kamu jadi wanita terakhir yang aku cintai
+                            dan aku harap suatu saat aku bisa sama kamu terus sampe kita sukses dan kita menjadi
+                            keuarga yang bahagia ya sayang,aku sayangg banget ama adee,Love youu adee💗💗
+                        </p>
+                    </div>
+
+                    <!-- Letter Signature -->
+                    <div class="letter-signature scroll-reveal">
+                        <p class="sig-from">Dengan seluruh cintaku,</p>
+                        <p class="sig-name">Joekkkkkk ❤️</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="romantic-footer">
+                <p class="footer-note">Handcrafted with love for Cyio • 2026</p>
+                <div class="heart-pulse-footer">❤️</div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- PREMIUM GLASSMORPHIC LIGHTBOX MODAL (POLAROID FRAME DESIGN) -->
+    <div id="photoLightbox" class="lightbox-modal" aria-hidden="true" role="dialog">
+        <button class="close-lightbox" id="closeLightboxBtn" aria-label="Tutup Detail">&times;</button>
+
+        <div class="lightbox-content" id="lightboxContentCard">
+            <!-- Decorative Gold Ribbon/Tape Seal at Top Center -->
+            <div class="lightbox-seal"></div>
+
+            <div class="lightbox-polaroid-frame">
+                <!-- Media Wrapper (Img or Video injected here) -->
+                <div id="lightboxMediaContainer" class="lightbox-media-container">
+                    <!-- Dynamic Element injected via JS -->
+                </div>
+
+                <!-- Polaroid styled Caption Box -->
+                <div class="lightbox-caption-box" id="lightboxCaptionBox">
+                    <h3 class="lightbox-caption-title" id="lightboxTitle"></h3>
+                    <p class="lightbox-caption-desc" id="lightboxDescription"></p>
+                    <span class="lightbox-heart-icon">💖</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Link -->
+    <script src="script.js"></script>
+</body>
+
+</html>

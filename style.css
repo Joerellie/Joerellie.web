@@ -1,0 +1,1683 @@
+/* ==========================================================================
+   STYLE SYSTEM FOR CYIO'S SURPRISE WEBSITE
+   Designed with Premium Glassmorphism, Micro-animations, and Warm Gradients
+   ========================================================================== */
+
+/* --- Custom Variables & Tokens --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #FFF0F2 0%, #FFD6DC 50%, #FFC2D1 100%);
+    --primary-rose: #FF6B8B;
+    --primary-rose-hover: #FF4B72;
+    --primary-rose-light: rgba(255, 107, 139, 0.1);
+    --gold: #D4AF37;
+    --text-dark: #4A2E35;
+    --text-muted: #8A6E75;
+    
+    /* Premium Glassmorphism Tokens */
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-bg-hover: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 20px 50px rgba(255, 182, 193, 0.35);
+    --inner-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.4);
+    
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Base Reset & Scrollbar --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-dark);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Custom Scrollbar for Premium Look */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #FFF0F2;
+}
+::-webkit-scrollbar-thumb {
+    background: #FFB3C6;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-rose);
+}
+
+/* --- Background Particle System --- */
+.hearts-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    fill: var(--primary-rose);
+    opacity: 0;
+    animation: floatHeart 10s linear infinite;
+    filter: drop-shadow(0 2px 5px rgba(255, 107, 139, 0.15));
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-105vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-105vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   SECTION 1: UNBOXING LANDING SCREEN
+   ========================================================================== */
+.landing-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #FFF5F7 0%, #FFD6DC 100%);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.2s ease;
+}
+
+.landing-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+/* Romantic Intro Quote */
+.gift-quote {
+    font-family: 'Sacramento', cursive;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 50px;
+    line-height: 1.3;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: quoteFadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.5s;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes quoteFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gift Box Shape Setup */
+.gift-box-container {
+    cursor: pointer;
+    perspective: 1000px;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 40px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.gift-box-container:hover {
+    transform: scale(1.08);
+}
+
+.gift-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: giftBreathe 3s ease-in-out infinite;
+}
+
+/* Breathing animation for box */
+@keyframes giftBreathe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Jiggle effect on hover */
+.gift-box-container:hover .gift-box {
+    animation: giftJiggle 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes giftJiggle {
+    0% { transform: rotate(-5deg) translateY(-5px); }
+    100% { transform: rotate(5deg) translateY(-5px); }
+}
+
+/* Lid of Gift Box */
+.gift-lid {
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    width: 180px;
+    height: 40px;
+    background: #FF6B8B;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Ribbon Horizontal */
+.lid-ribbon-h {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: #FFF;
+    transform: translateY(-50%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Ribbon Vertical */
+.lid-ribbon-v {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 12px;
+    height: 100%;
+    background: #FFF;
+    transform: translateX(-50%);
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Bow styling */
+.gift-bow {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    width: 60px;
+    height: 30px;
+    transform: translateX(-50%);
+    z-index: 12;
+}
+
+.bow-left, .bow-right {
+    position: absolute;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    border: 8px solid #FFF;
+    border-radius: 50% 50% 0 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.bow-left {
+    left: -2px;
+    transform: rotate(-45deg);
+}
+
+.bow-right {
+    right: -2px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(45deg);
+}
+
+.bow-center {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background: #FF6B8B;
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Body of Gift Box */
+.gift-body-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 160px;
+    height: 140px;
+    background: #FF4B72;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 25px rgba(255, 75, 114, 0.35);
+    z-index: 5;
+    overflow: hidden;
+}
+
+.body-ribbon-h {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: #FFF;
+    transform: translateY(-50%);
+}
+
+.body-ribbon-v {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 12px;
+    height: 100%;
+    background: #FFF;
+    transform: translateX(-50%);
+}
+
+/* Hint Text */
+.gift-hint {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: hintFadeIn 1s ease forwards 1.5s, pulseHeart 2s infinite 2.5s;
+}
+
+@keyframes hintFadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes pulseHeart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); color: var(--primary-rose); }
+}
+
+/* --- Exploding Box Animations (Triggered by JS) --- */
+.landing-screen.unboxed {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.1);
+}
+
+.landing-screen.unboxed .gift-lid {
+    animation: lidExplode 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.landing-screen.unboxed .gift-body-box {
+    animation: bodyExplode 0.8s ease-in-out forwards;
+}
+
+@keyframes lidExplode {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    30% {
+        transform: translateY(-80px) rotate(-15deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-400px) rotate(-90deg) scale(0.6);
+        opacity: 0;
+    }
+}
+
+@keyframes bodyExplode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(1.1) translateY(10px);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(0.2) translateY(150px);
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================================================
+   SECTION 2: MAIN ROMANTIC INTERFACE
+   ========================================================================== */
+.main-content {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.5s cubic-bezier(0.19, 1, 0.22, 1), transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 10;
+    position: relative;
+    padding: 60px 20px 80px 20px;
+    display: none; /* Displayed via JS */
+}
+
+/* When unboxed class is applied to main content container */
+.main-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.romantic-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Avatar Photo circle */
+.avatar-holder {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 24px auto;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.avatar-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary-rose), var(--gold));
+    z-index: -1;
+    animation: spinGlow 6s linear infinite;
+    filter: blur(4px);
+    box-shadow: 0 5px 15px rgba(255, 107, 139, 0.3);
+}
+
+@keyframes spinGlow {
+    100% { transform: rotate(360deg); }
+}
+
+.avatar-holder img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #FFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Fallback SVG avatar style */
+.avatar-placeholder-svg {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #FFF;
+    border: 3px solid #FFF;
+    display: none; /* Hide by default, shown via HTML onerror flex triggers */
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.avatar-placeholder-svg svg {
+    width: 50px;
+    height: 50px;
+    animation: heartBeat 1.8s infinite ease-in-out;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* Header text */
+.subtitle-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-rose);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.02);
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+
+/* ==========================================================================
+   SPOTIFY-INSPIRED MUSIC PLAYER
+   ========================================================================== */
+.music-section {
+    margin-bottom: 70px;
+}
+
+.player-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: var(--glass-shadow);
+    transition: var(--transition-smooth);
+}
+
+.player-container:hover {
+    background: var(--glass-bg-hover);
+    box-shadow: 0 25px 60px rgba(255, 182, 193, 0.45);
+}
+
+.player-inner {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+/* --- Album Cover Section (Spinning Disc design) --- */
+.player-album-cover {
+    width: 200px;
+    height: 200px;
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(74, 46, 53, 0.15);
+    background: #FFF0F2;
+    transition: var(--transition-smooth);
+}
+
+.album-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 18px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.player-album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Fallback Art cover */
+.album-placeholder-art {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FFB3C6 0%, #FFD6DC 100%);
+    display: none; /* Hide by default, shown via HTML onerror flex triggers */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.album-svg-love {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(0 4px 10px rgba(255, 75, 114, 0.2));
+}
+
+/* Spinning effect during playback */
+.player-album-cover.playing img, 
+.player-album-cover.playing .album-placeholder-art {
+    animation: rotateAlbum 20s linear infinite;
+    border-radius: 50%;
+}
+
+@keyframes rotateAlbum {
+    100% { transform: rotate(360deg); }
+}
+
+/* Floating Music Notes Animation */
+.floating-notes-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.floating-notes-container span {
+    position: absolute;
+    font-size: 1.5rem;
+    color: var(--primary-rose);
+    opacity: 0;
+    transform: translateY(0);
+}
+
+.note-1 { top: 20%; left: 20%; animation: noteDrift 3s infinite 0.2s; }
+.note-2 { top: 60%; left: 70%; animation: noteDrift 3.5s infinite 1.2s; }
+.note-3 { top: 30%; left: 75%; animation: noteDrift 2.8s infinite 0.7s; }
+
+@keyframes noteDrift {
+    0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(-40px) scale(1.2) rotate(20deg); opacity: 0; }
+}
+
+/* --- Controls Section --- */
+.player-controls-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Track Text & Wave Info */
+.track-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.track-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.track-artist {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* Animated Soundwave Visualizer style */
+.visualizer {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 30px;
+    padding-bottom: 4px;
+}
+
+.visualizer .bar {
+    width: 3px;
+    height: 5px;
+    background: linear-gradient(to top, var(--primary-rose), var(--gold));
+    border-radius: 3px;
+    transition: height 0.3s ease;
+}
+
+/* Active Audio Wave heights */
+.visualizer.playing .bar {
+    animation: pulseBars 1.2s ease-in-out infinite alternate;
+}
+
+.visualizer.playing .bar:nth-child(1) { height: 18px; animation-delay: 0.1s; }
+.visualizer.playing .bar:nth-child(2) { height: 26px; animation-delay: 0.4s; }
+.visualizer.playing .bar:nth-child(3) { height: 12px; animation-delay: 0.2s; }
+.visualizer.playing .bar:nth-child(4) { height: 28px; animation-delay: 0.6s; }
+.visualizer.playing .bar:nth-child(5) { height: 20px; animation-delay: 0.3s; }
+.visualizer.playing .bar:nth-child(6) { height: 10px; animation-delay: 0.5s; }
+.visualizer.playing .bar:nth-child(7) { height: 24px; animation-delay: 0.7s; }
+.visualizer.playing .bar:nth-child(8) { height: 15px; animation-delay: 0.15s; }
+
+@keyframes pulseBars {
+    0% { transform: scaleY(0.4); }
+    100% { transform: scaleY(1.1); }
+}
+
+/* Progress Slider */
+.progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.time-stamp {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    min-width: 32px;
+}
+
+.progress-bar-container {
+    flex: 1;
+    height: 6px;
+    background: rgba(74, 46, 53, 0.08);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    overflow: visible;
+}
+
+.progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, var(--primary-rose), #FF4B72);
+    border-radius: 10px;
+    transition: width 0.1s linear;
+}
+
+.progress-knob {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: #FFF;
+    border: 2px solid var(--primary-rose);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease, left 0.1s linear;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.progress-bar-container:hover .progress-knob {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.progress-bar-container:hover .progress-bar {
+    background: var(--primary-rose-hover);
+}
+
+/* Spotify buttons container */
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: var(--transition-quick);
+    width: 44px;
+    height: 44px;
+}
+
+.control-btn svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--text-dark);
+    transition: var(--transition-quick);
+}
+
+.control-btn:hover {
+    background: var(--primary-rose-light);
+}
+
+.control-btn:hover svg {
+    fill: var(--primary-rose);
+    transform: scale(1.1);
+}
+
+/* Secondary controls (shuffle/repeat) */
+.secondary-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--text-muted);
+}
+
+.secondary-btn.active svg {
+    fill: var(--primary-rose);
+}
+
+/* Main play button */
+.main-play-btn {
+    background: var(--primary-rose);
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 4px 12px rgba(255, 107, 139, 0.3);
+}
+
+.main-play-btn svg {
+    width: 26px;
+    height: 26px;
+    fill: #FFF;
+}
+
+.main-play-btn:hover {
+    background: var(--primary-rose-hover);
+    box-shadow: 0 6px 18px rgba(255, 107, 139, 0.45);
+    transform: scale(1.05);
+}
+
+.main-play-btn:hover svg {
+    fill: #FFF;
+    transform: scale(1);
+}
+
+/* Player Footer & Volume controls */
+.player-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(74, 46, 53, 0.05);
+    padding-top: 15px;
+}
+
+.active-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--primary-rose);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.volume-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--text-muted);
+}
+
+.volume-slider-bg {
+    width: 70px;
+    height: 4px;
+    background: rgba(74, 46, 53, 0.08);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.volume-slider-fill {
+    width: 80%; /* Default volume 80% */
+    height: 100%;
+    background: var(--text-muted);
+    border-radius: 10px;
+}
+
+.volume-container:hover .volume-slider-fill {
+    background: var(--primary-rose);
+}
+
+
+/* ==========================================================================
+   PHOTO MARQUEE SECTION (Endless loop scroll)
+   ========================================================================== */
+.gallery-section {
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.gallery-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.gallery-subtitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+}
+
+/* Hidden marquee boundary box */
+.marquee-wrapper {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+/* Fade cover gradient overlays left and right for dreamy soft edges */
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255,240,242,1) 0%, rgba(255,240,242,0) 100%);
+}
+
+.marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255,240,242,1) 0%, rgba(255,240,242,0) 100%);
+}
+
+/* Endless Running Track */
+.marquee-container {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    width: 100%;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 30px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    padding: 10px 0;
+}
+
+/* Continuous moving animation */
+.scroll-left .marquee-track {
+    animation: marqueeScroll 45s linear infinite;
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Shift exactly by half since we duplicate it in JS */
+}
+
+/* Pause scroll when cursor floats over cards */
+.marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* --- Polaroid Photo Cards --- */
+.polaroid-card {
+    display: inline-block;
+    width: 200px;
+    background: #FFF;
+    padding: 12px 12px 20px 12px;
+    border-radius: 2px;
+    box-shadow: 0 8px 20px rgba(74, 46, 53, 0.08);
+    transform: rotate(var(--rotation, 0deg)) translateY(0);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.polaroid-card:hover {
+    transform: scale(1.08) rotate(0deg) translateY(-8px);
+    box-shadow: 0 15px 30px rgba(74, 46, 53, 0.15);
+    z-index: 8;
+}
+
+/* Tilt alternation */
+.polaroid-card:nth-child(4n+1) { --rotation: -3deg; }
+.polaroid-card:nth-child(4n+2) { --rotation: 2deg; }
+.polaroid-card:nth-child(4n+3) { --rotation: -1.5deg; }
+.polaroid-card:nth-child(4n+4) { --rotation: 3.5deg; }
+
+/* Elegant Polaroid Pin effect */
+.pin {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    width: 32px;
+    height: 12px;
+    background: rgba(212, 175, 55, 0.45); /* Gold semi-trans tape */
+    transform: translateX(-50%) rotate(-4deg);
+    border-left: 1px dashed rgba(255,255,255,0.5);
+    border-right: 1px dashed rgba(255,255,255,0.5);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.polaroid-card:hover .pin {
+    opacity: 0.8;
+    transform: translateX(-50%) rotate(0deg) scale(1.1);
+}
+
+.photo-box {
+    width: 176px;
+    height: 176px;
+    overflow: hidden;
+    border-radius: 2px;
+    background: #FFF5F6;
+    border: 1px solid rgba(74, 46, 53, 0.05);
+    position: relative;
+}
+
+.photo-box img, 
+.photo-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+}
+
+.polaroid-card:hover img, 
+.polaroid-card:hover video {
+    transform: scale(1.08);
+}
+
+/* Muted Video badge inside marquee */
+.video-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6rem;
+    color: var(--text-dark);
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Fallback graphic polaroids when missing files */
+.photo-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+/* Varying soft romantic gradient templates for aesthetic variety */
+.pf-1 { background: linear-gradient(135deg, #FFF0F2 0%, #FFB3C6 100%); }
+.pf-2 { background: linear-gradient(135deg, #FFF6E6 0%, #FFD180 100%); }
+.pf-3 { background: linear-gradient(135deg, #E8F5E9 0%, #A5D6A7 100%); }
+.pf-4 { background: linear-gradient(135deg, #ECEFF1 0%, #B0BEC5 100%); }
+.pf-5 { background: linear-gradient(135deg, #E0F7FA 0%, #4DD0E1 100%); }
+.pf-6 { background: linear-gradient(135deg, #FFF3E0 0%, #FFB74D 100%); }
+.pf-7 { background: linear-gradient(135deg, #F3E5F5 0%, #CE93D8 100%); }
+.pf-8 { background: linear-gradient(135deg, #E0F2F1 0%, #80CBC4 100%); }
+.pf-9 { background: linear-gradient(135deg, #FCE4EC 0%, #F48FB1 100%); }
+.pf-10 { background: linear-gradient(135deg, #EFEBE9 0%, #BCAAA4 100%); }
+.pf-11 { background: linear-gradient(135deg, #FFF0F2 0%, #FF85A1 100%); }
+.pf-12 { background: linear-gradient(135deg, #FFFDE7 0%, #FFF59D 100%); }
+
+.fallback-icon {
+    font-size: 2.2rem;
+    animation: iconFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes iconFloat {
+    0% { transform: translateY(-5px) scale(0.95); }
+    100% { transform: translateY(5px) scale(1.05); }
+}
+
+/* Captions Handwriting text */
+.polaroid-caption {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-align: center;
+    margin-top: 12px;
+    word-break: break-word;
+    white-space: normal;
+}
+
+
+/* ==========================================================================
+   LOVE LETTER SECTION
+   ========================================================================== */
+.letter-section {
+    margin-bottom: 75px;
+    padding: 0 10px;
+}
+
+.letter-card {
+    background: #FFF;
+    background-image: radial-gradient(var(--primary-rose-light) 0.8px, #FFF 0.8px);
+    background-size: 16px 16px;
+    border-radius: 28px;
+    padding: 50px 45px;
+    box-shadow: 0 15px 40px rgba(74, 46, 53, 0.06);
+    position: relative;
+    border: 2px solid #FFF;
+    overflow: hidden;
+}
+
+.letter-card::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px dashed rgba(255, 107, 139, 0.25);
+    border-radius: 24px;
+    pointer-events: none;
+}
+
+/* Envelope Gold Stamp Detail */
+.letter-stamp {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    transform: rotate(15deg);
+    opacity: 0.8;
+}
+
+/* Large Letter Header */
+.letter-title {
+    font-family: 'Sacramento', cursive;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--primary-rose);
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.letter-body {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+/* Typeset Letter Paragraphs */
+.letter-p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    text-indent: 30px;
+}
+
+/* Beautiful drop caps on first letter of first paragraph */
+.letter-p:first-of-type::first-letter {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.4rem;
+    float: left;
+    margin-top: -6px;
+    margin-right: 10px;
+    color: var(--primary-rose);
+    font-weight: bold;
+}
+
+/* Signature Block */
+.letter-signature {
+    margin-top: 45px;
+    text-align: right;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sig-from {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.sig-name {
+    font-family: 'Sacramento', cursive;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-rose);
+    line-height: 1;
+}
+
+/* --- Scroll Reveal Animations (Controlled by JS) --- */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   PREMIUM GLASSMORPHIC LIGHTBOX MODAL (POLAROID FRAME DESIGN)
+   ========================================================================== */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(74, 46, 53, 0.82); /* Deep romantic maroon glass */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 20px;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Lightbox container card scale-up entrance animation */
+.lightbox-content {
+    transform: scale(0.85);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    z-index: 10002;
+}
+
+.lightbox-modal.active .lightbox-content {
+    transform: scale(1);
+}
+
+/* Golden ribbon tape seal on top-center of modal polaroid */
+.lightbox-seal {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    width: 70px;
+    height: 24px;
+    background: rgba(212, 175, 55, 0.8); /* Semi-trans Gold tape */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-left: 1px dashed rgba(255, 255, 255, 0.4);
+    border-right: 1px dashed rgba(255, 255, 255, 0.4);
+    z-index: 10010;
+}
+
+/* Polaroid White Card Frame */
+.lightbox-polaroid-frame {
+    background: #FFF;
+    padding: 20px 20px 25px 20px;
+    border-radius: 4px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Media Box */
+.lightbox-media-container {
+    width: 100%;
+    aspect-ratio: 4/5;
+    max-height: 48vh;
+    overflow: hidden;
+    background: #FFF0F2;
+    border: 1.5px solid rgba(212, 175, 55, 0.3); /* elegant thin gold border inside */
+    border-radius: 2px;
+    position: relative;
+}
+
+.lightbox-media-container img, 
+.lightbox-media-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Polaroid base caption and typewriter description */
+.lightbox-caption-box {
+    padding: 18px 10px 5px 10px;
+    text-align: center;
+}
+
+.lightbox-caption-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-rose);
+    margin-bottom: 12px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.02);
+}
+
+.lightbox-caption-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--text-dark);
+    text-align: justify;
+    text-justify: inter-word;
+    text-indent: 20px;
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+.lightbox-heart-icon {
+    display: block;
+    font-size: 1.25rem;
+    margin-top: 15px;
+    animation: heartBeat 1.6s infinite ease-in-out;
+}
+
+/* Glowing Close Cross button */
+.close-lightbox {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    background: none;
+    border: none;
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: var(--transition-quick);
+    z-index: 10005;
+    font-family: sans-serif;
+    line-height: 1;
+}
+
+.close-lightbox:hover {
+    color: var(--primary-rose);
+    transform: scale(1.15) rotate(90deg);
+    text-shadow: 0 0 15px var(--primary-rose);
+}
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.romantic-footer {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(74, 46, 53, 0.05);
+}
+
+.footer-note {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.heart-pulse-footer {
+    display: inline-block;
+    font-size: 1.5rem;
+    animation: heartPulse 1.4s infinite ease-in-out;
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); filter: drop-shadow(0 2px 8px rgba(255, 107, 139, 0.4)); }
+}
+
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT RULES (Mobile Optimization First)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Landings */
+    .gift-quote {
+        font-size: 2.1rem;
+        margin-bottom: 35px;
+    }
+    
+    .gift-box-container {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .gift-lid {
+        width: 150px;
+        top: -15px;
+        left: -10px;
+    }
+    
+    .gift-body-box {
+        width: 130px;
+        height: 110px;
+    }
+    
+    /* Header layout */
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    /* Spotify Player Grid Stacking (Perfect for Phones!) */
+    .player-inner {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+    
+    .player-album-cover {
+        margin: 0 auto;
+        width: 170px;
+        height: 170px;
+    }
+    
+    .track-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .track-titles {
+        text-align: center;
+    }
+    
+    .player-controls {
+        gap: 18px;
+    }
+    
+    /* Gallery Section margins */
+    .gallery-title {
+        font-size: 1.6rem;
+    }
+    
+    /* Letter card styling padding on mobile */
+    .letter-card {
+        padding: 35px 25px;
+    }
+    
+    .letter-title {
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+    }
+    
+    .letter-p {
+        font-size: 0.95rem;
+        text-align: left;
+    }
+    
+    .letter-p:first-of-type::first-letter {
+        font-size: 2.8rem;
+    }
+    
+    .letter-stamp {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 20px;
+    }
+
+    /* Lightbox Modal Sizing for small phone viewports */
+    .close-lightbox {
+        top: 15px;
+        right: 20px;
+        font-size: 2.8rem;
+    }
+
+    .lightbox-content {
+        max-width: 92%;
+    }
+
+    .lightbox-polaroid-frame {
+        padding: 15px 15px 20px 15px;
+    }
+
+    .lightbox-media-container {
+        max-height: 40vh;
+    }
+
+    .lightbox-caption-title {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+
+    .lightbox-caption-desc {
+        font-size: 0.85rem;
+        line-height: 1.65;
+    }
+}
+
+/* ==========================================================================
+   SPOTIFY PLAYLIST WIDGET STYLES
+   ========================================================================== */
+.player-playlist {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(74, 46, 53, 0.08);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.playlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.playlist-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+}
+
+.playlist-count {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: rgba(74, 46, 53, 0.05);
+    padding: 3px 8px;
+    border-radius: 20px;
+}
+
+.playlist-items {
+    max-height: 190px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-right: 5px;
+}
+
+/* Custom mini scrollbar for playlist */
+.playlist-items::-webkit-scrollbar {
+    width: 4px;
+}
+.playlist-items::-webkit-scrollbar-track {
+    background: rgba(74, 46, 53, 0.02);
+}
+.playlist-items::-webkit-scrollbar-thumb {
+    background: rgba(255, 107, 139, 0.25);
+    border-radius: 10px;
+}
+.playlist-items::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-rose);
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition-quick);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.playlist-item:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: translateX(4px);
+    border-color: var(--primary-rose-light);
+}
+
+.pli-index {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    width: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.pli-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.pli-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: var(--transition-quick);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 320px;
+}
+
+.pli-desc {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 1px;
+}
+
+.pli-duration {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* Active Playlist item details */
+.playlist-item.active {
+    background: rgba(255, 107, 139, 0.15);
+    border-color: rgba(255, 107, 139, 0.35);
+    box-shadow: 0 4px 12px rgba(255, 107, 139, 0.08);
+}
+
+.playlist-item.active .pli-index {
+    color: var(--primary-rose);
+    font-weight: 700;
+}
+
+.playlist-item.active .pli-name {
+    color: var(--primary-rose);
+}
+
+/* Playing animation on active index item */
+.playlist-item.active .pli-index::after {
+    content: ' ♫';
+    font-size: 0.8rem;
+    color: var(--primary-rose);
+    animation: pliMusicPulse 1.2s infinite ease-in-out alternate;
+}
+
+@keyframes pliMusicPulse {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Mobile modifications for playlist layout */
+@media (max-width: 768px) {
+    .player-playlist {
+        margin-top: 25px;
+        padding-top: 20px;
+    }
+    
+    .playlist-items {
+        max-height: 160px;
+    }
+    
+    .playlist-item {
+        padding: 8px 10px;
+    }
+    
+    .pli-name {
+        font-size: 0.8rem;
+        max-width: 180px;
+    }
+    
+    .pli-desc {
+        font-size: 0.68rem;
+    }
+}
