@@ -135,10 +135,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- SPOTIFY MUSIC PLAYER CONTROLLER ---
     const playlist = [
         { title: "You're Gonna Live Forever in Me", artist: "John Mayer", src: "music/song1.mp3", fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", duration: "3:09" },
-        { title: "Helena", artist: "My Chemical Romance", src: "music/song2.mp3", fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", duration: "3:24" },
-        { title: "Perfect", artist: "Ed Sheeran", src: "music/song3.mp3", fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", duration: "4:23" },
-        { title: "Lover", artist: "Taylor Swift", src: "music/song4.mp3", fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", duration: "3:41" },
-        { title: "Until I Found You", artist: "Stephen Sanchez", src: "music/song5.mp3", fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", duration: "2:57" }
+        { title: "You’re Still The One", artist: "Shania Twain", src: "music/song2.mp3", fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", duration: "3:24" },
+        { title: "Helena", artist: "My Chemical Romance", src: "music/song3.mp3", fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", duration: "4:23" },
+        { title: "Last Night On Earth", artist: "Green Day", src: "music/song4.mp3", fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", duration: "3:41" },
+        { title: "All Of Me", artist: "John Legend", src: "music/song5.mp3", fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", duration: "2:57" }
     ];
     let currentTrackIndex = 0;
 
